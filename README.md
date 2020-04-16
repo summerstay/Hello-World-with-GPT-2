@@ -1,6 +1,6 @@
 # Hello-World-with-GPT-2
 This is a very short program to get you started using GPT-2. It sometimes says "Hello, World!" but it often says other things instead.
-It uses the HuggingFace Transformers library. The first time you run it, it will download the gpt2-xl file. This is an 11GB file, so it will take a while, even with broadband. After that it will run much faster, though it will still take a few seconds to get everything loaded into meory.
+It uses the HuggingFace Transformers library. The first time you run it, it will download the gpt2-xl neural network. This is an 11GB file, so it will take a while, even with broadband. After that it will run much faster, though it will still take a few seconds to get everything loaded into meory.
 
 This is the full program. The key line is the prompt:
 

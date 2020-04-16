@@ -2,6 +2,33 @@
 This is a very short program to get you started using GPT-2. It sometimes says "Hello, World!" but it often says other things instead.
 It uses the HuggingFace Transformers library. 
 
+This is the full program. The key line is the prompt:
+
+    # "Hello, World" using GPT-2
+    import torch
+    from transformers import GPT2Tokenizer, GPT2LMHeadModel
+    import torch.nn.functional as F
+
+    tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+    model = GPT2LMHeadModel.from_pretrained("gpt2-xl")
+    prompt = 'The AI wanted to greet the world so it said, "'
+    indexed_tokens = tokenizer.encode(prompt)
+    input_ids = torch.tensor(indexed_tokens).unsqueeze(0)
+    inputs = {'input_ids': input_ids}    
+    with torch.no_grad():
+        past = None
+        text=""
+        while not '"' in text:
+            print(text,end="", flush=True)
+            logits, past = model(**inputs, past=past)    
+            values, indices = torch.topk(logits, 20)
+            logits = logits[:, -1, :]
+            log_probs = F.softmax(logits, dim=-1)
+            next_token = torch.multinomial(log_probs, num_samples=1)
+            text = tokenizer.decode(next_token)
+            input_ids = torch.cat([input_ids, next_token], dim=1)
+            inputs = {'input_ids': next_token}
+
 Here is a sample of the output:
 
 Hello

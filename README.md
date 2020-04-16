@@ -1,6 +1,7 @@
 # Hello-World-with-GPT-2
 This is a very short program to get you started using the GPT-2 text generating deep network. It sometimes says "Hello, World!" but it often says other things instead.
-It uses the HuggingFace Transformers library. The first time you run it, it will download the gpt2-xl neural network. This is an 11GB file, so it will take a while, even with broadband. After that it will run much faster, though it will still take a few seconds to get everything loaded into memory.
+
+It uses the HuggingFace Transformers library. The first time you run it, it will download the gpt2-xl neural network. This is an 11GB (!) file, so it will take a while, even with broadband. After that it will run much faster, though it will still take a few seconds to get everything loaded into memory.
 
 This is the full program. The key line is the prompt:
 
